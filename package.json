@@ -1,8 +1,13 @@
 {
   "name": "grid-gallery-dnd-kit",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "author": {
+    "name":"Naim Hossain",
+    "url": "https://terminaim.vercel.app/",
+    "email": "naim1997dec1@gmail.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
