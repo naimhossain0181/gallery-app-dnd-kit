@@ -83,14 +83,6 @@ function App() {
         setImages(updatedItems);
         setSelectedItems([]);
       }
-    }).then(()=>{
-      Swal.fire({
-        icon: 'success',
-        title: 'Your image has been deleted',
-        showConfirmButton: false,
-        timer: 1000,
-       width:"300px",
-      })
     })
   };
   // upload handdler
