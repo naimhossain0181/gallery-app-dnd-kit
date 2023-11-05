@@ -1,41 +1,205 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,  minmax(150px, 1fr));
+.container {
+  background: rgb(8, 8, 8);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background: rgb(109, 109, 158);
+}
+
+/* Gallery Header Delete and Select action */
+.header-main {
+  position: fixed;
+  left: 50%;
+  top: 30px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px 10px 0 0;
+  width: 80%;
+  height: 50px;
+  background: white;
+  border-bottom: 1px solid rgb(163, 163, 163);
+  z-index: 100;
+}
+.action-nav {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
   justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+}
+.delete-btn{
+  width: 100px;
+  height: 30px;
+  background: #C0392B;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+/* gallery container .its actulllay the main area of gallery */
+.gallery-container {
+  width: 80%;
+  height: 96vh;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background: rgb(255, 255, 255);
+  position: relative;
+  overflow: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+/* hide scrollber */
+.gallery-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* gallery grid style */
+.grid-container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 4px;
+  padding: 60px;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
 }
 
 .grid-item {
+  width: 100%;
+  height: 100%;
+  max-width: 140px;
+  max-height: 140px;
   align-items: center;
   justify-content: center;
   border: 1px solid gray;
   border-radius: 10px;
+  position: relative;
+}
+
+/* hover grid item style */
+.grid-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  opacity: 0;
   overflow: hidden;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+.grid-item:hover::before {
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/* item is selected or non selected style */
+.checked-item {
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.checked-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(24, 8, 172);
+  opacity: 0.1;
+  overflow: hidden;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 .large {
   grid-row: span 2;
   grid-column: span 2;
-
 }
-img{
+img {
   width: 100%;
   height: 100%;
-  min-width: 150px;
-  min-height: 150px;
   object-fit: cover;
-  overflow: hidden;
-
+  border-radius: 10px;
 }
-.placeholder{
-  display: flex;
-  background: yellow;
-  overflow: hidden;
 
+.upload {
+  min-width: 140px;
+  min-height: 140px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  background: rgb(171, 171, 173);
+  cursor: pointer;
+}
+/* drop area box style */
+.box {
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: relative;
+}
+.box::before {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  content: "";
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgb(238, 238, 238);
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 10px;
+  box-shadow: 0px 0px 22px 8px rgba(0, 0, 0, 0.62) inset;
+  -webkit-box-shadow: 0px 0px 22px 8px rgba(0, 0, 0, 0.62) inset;
+  -moz-box-shadow: 0px 0px 22px 8px rgba(0, 0, 0, 0.62) inset;
+}
+/* hover and show hide checkbox area */
+.grid-item:hover .checkbox {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.checkbox {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+.active {
+  display: block;
+}
+.hidden {
+  display: none;
 }
