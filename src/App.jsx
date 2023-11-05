@@ -28,7 +28,6 @@ function App() {
   const [images, setImages] = useState([]);
   const [activeId, setActiveId] = useState(null);
   const [draggedImg, setDraggedImg] = useState(null);
-  const [isCheck, setIsCheck] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const uploadRef = useRef(null);
 
@@ -110,7 +109,7 @@ function App() {
         // console.log(event.target.result)
         setImages([
           ...images,
-          { id: images.length + 1, url: event.target.result },
+          { id: images.length + Date.now(), url: event.target.result },
         ]);
       };
       if (uploadFile) {
